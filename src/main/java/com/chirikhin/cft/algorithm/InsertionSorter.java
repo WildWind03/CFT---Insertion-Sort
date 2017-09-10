@@ -11,7 +11,7 @@ public class InsertionSorter implements ISorter {
             return;
         }
 
-        MyComparator comparator = ComparatorFactory.createComparator(sortType);
+        IComparator comparator = ComparatorFactory.createComparator(sortType);
 
         synchronized (data) {
             T tmp;

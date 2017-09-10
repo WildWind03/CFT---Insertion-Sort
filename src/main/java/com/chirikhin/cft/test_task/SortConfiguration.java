@@ -10,6 +10,10 @@ public class SortConfiguration {
     private final String outFilename;
 
     public SortConfiguration (SourceType sourceType, SortType sortType, String inFilename, String outFilename) {
+        if (null == sourceType || null == sortType || null == inFilename || null == outFilename) {
+            throw new IllegalArgumentException("All the fields of sort configuration instance must be not null");
+        }
+
         this.sortType = sortType;
         this.sourceType = sourceType;
         this.inFilename = inFilename;

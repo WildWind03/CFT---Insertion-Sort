@@ -5,7 +5,7 @@ public class ComparatorFactory {
 
     }
 
-    public static MyComparator createComparator(SortType sortType) {
+    public static IComparator createComparator(SortType sortType) {
         if (null == sortType) {
             throw new IllegalArgumentException("Sort Type cannot be null");
         }

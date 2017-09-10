@@ -1,6 +1,6 @@
 package com.chirikhin.cft.algorithm;
 
-public class DescendingComparator implements MyComparator {
+public class DescendingComparator implements IComparator {
     @Override
     public <T, K extends Comparable<T>> int compareTo(K o1, T o2) {
         if (null == o2) {

@@ -8,9 +8,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        SortConfiguration sortConfiguration = ArgumentParser.parseConfiguration(args);
-
         try {
+            SortConfiguration sortConfiguration = ArgumentParser.parseConfiguration(args);
+
             String[] strings = InputFileReader.getContent(sortConfiguration.getInFilename());
             ISorter iSorter = SorterFactory.createSorter(SortAlgorithm.INSERTION);
             switch (sortConfiguration.getSourceType()) {
@@ -22,13 +22,16 @@ public class Main {
                             .toArray(Integer[]::new);
 
                     iSorter.sort(integers, sortConfiguration.getSortType());
+                    OutputFileWriter.write(sortConfiguration.getOutFilename(), integers);
                     break;
 
                 case STRING:
                     iSorter.sort(strings, sortConfiguration.getSortType());
+                    OutputFileWriter.write(sortConfiguration.getOutFilename(), strings);
                     break;
                 default:
-                    break;
+                    throw new IllegalArgumentException("Inappropriate source type "
+                            .concat(sortConfiguration.getSourceType().name()));
             }
 
         } catch (Exception e) {
