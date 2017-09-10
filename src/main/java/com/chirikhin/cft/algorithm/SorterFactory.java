@@ -7,7 +7,7 @@ public class SorterFactory {
 
     public static ISorter createSorter(SortAlgorithm sortAlgorithm) {
         if (null == sortAlgorithm) {
-            throw new IllegalArgumentException("Sort algorithm can not be null");
+            throw new IllegalArgumentException("A sort algorithm can not be null");
         }
 
         switch (sortAlgorithm) {

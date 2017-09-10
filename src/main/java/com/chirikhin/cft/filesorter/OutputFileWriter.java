@@ -1,4 +1,4 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;

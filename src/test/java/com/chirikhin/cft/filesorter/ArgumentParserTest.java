@@ -1,5 +1,7 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
+import com.chirikhin.cft.algorithm.SortType;
+import com.chirikhin.cft.algorithm.SourceType;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,8 +21,8 @@ public class ArgumentParserTest {
         SortConfiguration sortConfiguration = ArgumentParser.parseConfiguration(new String[]{"in", "out", "-s", "-a"});
         Assert.assertEquals("in", sortConfiguration.getInFilename());
         Assert.assertEquals("out", sortConfiguration.getOutFilename());
-        Assert.assertEquals(SortConfiguration.SortType.ASCENDING, sortConfiguration.getSortType());
-        Assert.assertEquals(SortConfiguration.SourceType.STRING, sortConfiguration.getSourceType());
+        Assert.assertEquals(SortType.ASCENDING, sortConfiguration.getSortType());
+        Assert.assertEquals(SourceType.STRING, sortConfiguration.getSourceType());
     }
 
 

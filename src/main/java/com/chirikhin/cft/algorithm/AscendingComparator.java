@@ -1,6 +1,10 @@
 package com.chirikhin.cft.algorithm;
 
 public class AscendingComparator implements IComparator {
+
+    /**
+     * null is less than anything else
+     */
     @Override
     public <T, K extends Comparable<T>> int compareTo(K o1, T o2) {
         if (null == o1) {

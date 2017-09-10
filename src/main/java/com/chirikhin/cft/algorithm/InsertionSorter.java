@@ -13,6 +13,9 @@ public class InsertionSorter implements ISorter {
 
         IComparator comparator = ComparatorFactory.createComparator(sortType);
 
+        /*
+            the synchronized block is used for thread safety
+         */
         synchronized (data) {
             T tmp;
 

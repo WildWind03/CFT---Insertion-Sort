@@ -1,4 +1,4 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
 public class InvalidInputFileException extends Exception {
     public InvalidInputFileException(String message) {

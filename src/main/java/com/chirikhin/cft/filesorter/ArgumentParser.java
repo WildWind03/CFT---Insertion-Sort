@@ -1,17 +1,17 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
 import com.chirikhin.cft.algorithm.SortType;
 import com.chirikhin.cft.algorithm.SourceType;
 
 public class ArgumentParser {
-    private ArgumentParser() {
-
-    }
-
     private static final String ASCENDING_SORT_TAG = "-a";
     private static final String DESCENDING_SORT_TAG = "-d";
     private static final String STRING_TAG = "-s";
     private static final String INTEGER_TAG = "-i";
+
+    private ArgumentParser() {
+
+    }
 
     public static SortConfiguration parseConfiguration(String[] args) {
         if (null == args) {

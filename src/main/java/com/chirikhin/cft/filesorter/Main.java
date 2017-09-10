@@ -1,4 +1,4 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
 import com.chirikhin.cft.algorithm.ISorter;
 import com.chirikhin.cft.algorithm.SortAlgorithm;
@@ -29,13 +29,14 @@ public class Main {
                     iSorter.sort(strings, sortConfiguration.getSortType());
                     OutputFileWriter.write(sortConfiguration.getOutFilename(), strings);
                     break;
+
                 default:
                     throw new IllegalArgumentException("Inappropriate source type "
                             .concat(sortConfiguration.getSourceType().name()));
             }
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 }

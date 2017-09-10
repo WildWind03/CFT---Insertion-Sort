@@ -1,4 +1,4 @@
-package com.chirikhin.cft.test_task;
+package com.chirikhin.cft.filesorter;
 
 import com.chirikhin.cft.algorithm.SortType;
 import com.chirikhin.cft.algorithm.SourceType;
