@@ -8,17 +8,30 @@ import org.junit.Test;
 public class ArgumentParserTest {
     @Test(expected = IllegalArgumentException.class)
     public void parseConfigurationException() {
-        ArgumentParser.parseConfiguration(new String[]{null, null, null, null});
-        ArgumentParser.parseConfiguration(null);
-        ArgumentParser.parseConfiguration(new String[]{"a", "b", "c", "d", "e"});
-        ArgumentParser.parseConfiguration(new String[]{"a", "b"});
-        ArgumentParser.parseConfiguration(new String[]{"in", "out", "-f", "-a"});
-        ArgumentParser.parseConfiguration(new String[]{"in", "out", "-d", "-g"});
+        ArgumentParser argumentParser = new ArgumentParser(new String[]{null, null, null, null});
+        argumentParser.parseConfiguration();
+
+        ArgumentParser argumentParser1 = new ArgumentParser(null);
+        argumentParser1.parseConfiguration();
+
+        ArgumentParser argumentParser2 = new ArgumentParser(new String[]{"a", "b", "c", "d", "e"});
+        argumentParser2.parseConfiguration();
+
+        ArgumentParser argumentParser3 = new ArgumentParser(new String[]{"a", "b"});
+        argumentParser3.parseConfiguration();
+
+        ArgumentParser argumentParser4 = new ArgumentParser(new String[]{"in", "out", "-f", "-a"});
+        argumentParser4.parseConfiguration();
+
+        ArgumentParser argumentParser5 = new ArgumentParser(new String[]{"in", "out", "-d", "-g"});
+        argumentParser5.parseConfiguration();
     }
 
     @Test
     public void parseConfiguration() {
-        SortConfiguration sortConfiguration = ArgumentParser.parseConfiguration(new String[]{"in", "out", "-s", "-a"});
+        ArgumentParser argumentParser = new ArgumentParser(new String[]{"in", "out", "-s", "-a"});
+        SortConfiguration sortConfiguration = argumentParser.parseConfiguration();
+
         Assert.assertEquals("in", sortConfiguration.getInFilename());
         Assert.assertEquals("out", sortConfiguration.getOutFilename());
         Assert.assertEquals(SortType.ASCENDING, sortConfiguration.getSortType());

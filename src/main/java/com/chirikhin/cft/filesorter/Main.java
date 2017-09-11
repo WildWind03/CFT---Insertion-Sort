@@ -11,8 +11,8 @@ public class Main {
         try {
             ArgumentParser argumentParser = new ArgumentParser(args);
             SortConfiguration sortConfiguration = argumentParser.parseConfiguration();
-
             InputFileReader inputFileReader = new InputFileReader(sortConfiguration.getInFilename());
+
             String[] strings = inputFileReader.getContent();
             ISorter iSorter = SorterFactory
                     .getInstance()
