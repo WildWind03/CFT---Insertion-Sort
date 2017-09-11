@@ -1,8 +1,9 @@
 package com.chirikhin.cft.algorithm;
 
 public class DescendingComparator implements IComparator {
+
     /**
-     * null is less than anything else
+     * assume that null is less than anything else
      */
 
     @Override

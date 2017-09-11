@@ -9,10 +9,16 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         try {
-            SortConfiguration sortConfiguration = ArgumentParser.parseConfiguration(args);
+            ArgumentParser argumentParser = new ArgumentParser(args);
+            SortConfiguration sortConfiguration = argumentParser.parseConfiguration();
 
-            String[] strings = InputFileReader.getContent(sortConfiguration.getInFilename());
-            ISorter iSorter = SorterFactory.createSorter(SortAlgorithm.INSERTION);
+            InputFileReader inputFileReader = new InputFileReader(sortConfiguration.getInFilename());
+            String[] strings = inputFileReader.getContent();
+            ISorter iSorter = SorterFactory
+                    .getInstance()
+                    .createSorter(SortAlgorithm.INSERTION);
+
+            OutputFileWriter outputFileWriter = new OutputFileWriter(sortConfiguration.getOutFilename());
             switch (sortConfiguration.getSourceType()) {
                 case INTEGER:
                     Integer[] integers = Arrays
@@ -22,12 +28,12 @@ public class Main {
                             .toArray(Integer[]::new);
 
                     iSorter.sort(integers, sortConfiguration.getSortType());
-                    OutputFileWriter.write(sortConfiguration.getOutFilename(), integers);
+                    outputFileWriter.write(integers);
                     break;
 
                 case STRING:
                     iSorter.sort(strings, sortConfiguration.getSortType());
-                    OutputFileWriter.write(sortConfiguration.getOutFilename(), strings);
+                    outputFileWriter.write(strings);
                     break;
 
                 default:

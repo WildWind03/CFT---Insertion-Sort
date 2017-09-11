@@ -9,11 +9,13 @@ public class ArgumentParser {
     private static final String STRING_TAG = "-s";
     private static final String INTEGER_TAG = "-i";
 
-    private ArgumentParser() {
+    private final String[] args;
 
+    public ArgumentParser(String[] args) {
+        this.args = args;
     }
 
-    public static SortConfiguration parseConfiguration(String[] args) {
+    public SortConfiguration parseConfiguration() {
         if (null == args) {
             throw new IllegalArgumentException("Args cannot be null");
         }

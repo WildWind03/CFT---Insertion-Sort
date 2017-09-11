@@ -7,11 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InputFileReader {
-    private InputFileReader() {
 
+    private final String filename;
+
+    public InputFileReader(String filename) {
+        this.filename = filename;
     }
 
-    public static String[] getContent(String filename) throws IOException, InvalidInputFileException {
+    public String[] getContent() throws IOException, InvalidInputFileException {
         List<String> stringList = new LinkedList<>();
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
             String tempString;
