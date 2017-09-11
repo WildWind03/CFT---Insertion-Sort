@@ -21,7 +21,7 @@ public class Main {
                     .getInstance()
                     .createSorter(SortAlgorithm.INSERTION);
 
-            switch (sortConfiguration.getSourceType()) {
+            switch (sortConfiguration.getSortDataType()) {
                 case INTEGER:
                     Integer[] integers;
                     try {
@@ -34,18 +34,18 @@ public class Main {
                         throw new InvalidInputFileException("Invalid file. Can not parse a string to integer");
                     }
 
-                    iSorter.sort(integers, sortConfiguration.getSortType());
+                    iSorter.sort(integers, sortConfiguration.getSortDirection());
                     IOUtil.write(sortConfiguration.getOutFilename(), integers);
                     break;
 
                 case STRING:
-                    iSorter.sort(strings, sortConfiguration.getSortType());
+                    iSorter.sort(strings, sortConfiguration.getSortDirection());
                     IOUtil.write(sortConfiguration.getOutFilename(), strings);
                     break;
 
                 default:
                     throw new IllegalArgumentException("Inappropriate source type "
-                            + sortConfiguration.getSourceType().name());
+                            + sortConfiguration.getSortDataType().name());
             }
 
         } catch (Exception e) {

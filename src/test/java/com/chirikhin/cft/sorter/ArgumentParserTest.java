@@ -1,7 +1,6 @@
 package com.chirikhin.cft.sorter;
 
-import com.chirikhin.cft.algorithm.SortType;
-import com.chirikhin.cft.algorithm.SourceType;
+import com.chirikhin.cft.algorithm.SortDirection;
 import com.chirikhin.cft.argumentparser.ArgumentParser;
 import com.chirikhin.cft.argumentparser.SortConfiguration;
 import org.junit.Assert;
@@ -36,8 +35,8 @@ public class ArgumentParserTest {
 
         Assert.assertEquals("in", sortConfiguration.getInFilename());
         Assert.assertEquals("out", sortConfiguration.getOutFilename());
-        Assert.assertEquals(SortType.ASCENDING, sortConfiguration.getSortType());
-        Assert.assertEquals(SourceType.STRING, sortConfiguration.getSourceType());
+        Assert.assertEquals(SortDirection.ASCENDING, sortConfiguration.getSortDirection());
+        Assert.assertEquals(SortConfiguration.SortDataType.STRING, sortConfiguration.getSortDataType());
     }
 
 

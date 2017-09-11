@@ -1,21 +1,20 @@
 package com.chirikhin.cft.argumentparser;
 
-import com.chirikhin.cft.algorithm.SortType;
-import com.chirikhin.cft.algorithm.SourceType;
+import com.chirikhin.cft.algorithm.SortDirection;
 
 public class SortConfigurationBuilder {
-    private SourceType sourceType;
-    private SortType sortType;
+    private SortConfiguration.SortDataType sortDataType;
+    private SortDirection sortDirection;
     private String inFilename;
     private String outFilename;
 
-    public SortConfigurationBuilder setSourceType(SourceType sourceType) {
-        this.sourceType = sourceType;
+    public SortConfigurationBuilder setSortDataType(SortConfiguration.SortDataType sortDataType) {
+        this.sortDataType = sortDataType;
         return this;
     }
 
-    public SortConfigurationBuilder setSortType(SortType sortType) {
-        this.sortType = sortType;
+    public SortConfigurationBuilder setSortDirection(SortDirection sortDirection) {
+        this.sortDirection = sortDirection;
         return this;
     }
 
@@ -30,6 +29,6 @@ public class SortConfigurationBuilder {
     }
 
     public SortConfiguration createSortConfiguration() {
-        return new SortConfiguration(sourceType, sortType, inFilename, outFilename);
+        return new SortConfiguration(sortDataType, sortDirection, inFilename, outFilename);
     }
 }

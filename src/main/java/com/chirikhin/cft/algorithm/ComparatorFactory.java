@@ -14,19 +14,19 @@ public class ComparatorFactory {
         return ComparatorFactoryHolder.instance;
     }
 
-    public IComparator createComparator(SortType sortType) {
-        if (null == sortType) {
+    public IComparator createComparator(SortDirection sortDirection) {
+        if (null == sortDirection) {
             throw new IllegalArgumentException("It's impossible to create comparator with null sort type");
         }
 
-        switch (sortType) {
+        switch (sortDirection) {
             case ASCENDING:
                 return new AscendingComparator();
             case DESCENDING:
                 return new DescendingComparator();
             default:
                 throw new IllegalArgumentException("It's impossible to create comparator for such sort type: "
-                        + sortType.name());
+                        + sortDirection.name());
         }
     }
 }

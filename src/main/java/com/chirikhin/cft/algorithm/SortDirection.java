@@ -1,6 +1,6 @@
 package com.chirikhin.cft.algorithm;
 
-public enum SortType {
+public enum SortDirection {
     ASCENDING, DESCENDING
 }
 

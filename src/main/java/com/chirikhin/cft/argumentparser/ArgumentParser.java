@@ -1,7 +1,6 @@
 package com.chirikhin.cft.argumentparser;
 
-import com.chirikhin.cft.algorithm.SortType;
-import com.chirikhin.cft.algorithm.SourceType;
+import com.chirikhin.cft.algorithm.SortDirection;
 
 public class ArgumentParser {
     private static final String ASCENDING_SORT_TAG = "-a";
@@ -35,10 +34,10 @@ public class ArgumentParser {
         sortConfigurationBuilder.setOutFilename(args[1]);
         switch (args[2]) {
             case STRING_TAG :
-                sortConfigurationBuilder.setSourceType(SourceType.STRING);
+                sortConfigurationBuilder.setSortDataType(SortConfiguration.SortDataType.STRING);
                 break;
             case INTEGER_TAG:
-                sortConfigurationBuilder.setSourceType(SourceType.INTEGER);
+                sortConfigurationBuilder.setSortDataType(SortConfiguration.SortDataType.INTEGER);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid source type: " + args[2]);
@@ -46,10 +45,10 @@ public class ArgumentParser {
 
         switch (args[3]) {
             case ASCENDING_SORT_TAG :
-                sortConfigurationBuilder.setSortType(SortType.ASCENDING);
+                sortConfigurationBuilder.setSortDirection(SortDirection.ASCENDING);
                 break;
             case DESCENDING_SORT_TAG:
-                sortConfigurationBuilder.setSortType(SortType.DESCENDING);
+                sortConfigurationBuilder.setSortDirection(SortDirection.DESCENDING);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid sort type: " + args[3]);

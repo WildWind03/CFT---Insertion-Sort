@@ -2,7 +2,7 @@ package com.chirikhin.cft.algorithm;
 
 public class InsertionSorter implements ISorter {
     @Override
-    public <T extends Comparable<T>> void sort(T[] data, SortType sortType) {
+    public <T extends Comparable<T>> void sort(T[] data, SortDirection sortDirection) {
         if (null == data) {
             return;
         }
@@ -13,7 +13,7 @@ public class InsertionSorter implements ISorter {
 
         IComparator comparator = ComparatorFactory
                 .getInstance()
-                .createComparator(sortType);
+                .createComparator(sortDirection);
 
         /*
             the synchronized block is used for thread safety

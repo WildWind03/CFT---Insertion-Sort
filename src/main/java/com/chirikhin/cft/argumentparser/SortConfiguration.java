@@ -1,33 +1,37 @@
 package com.chirikhin.cft.argumentparser;
 
-import com.chirikhin.cft.algorithm.SortType;
-import com.chirikhin.cft.algorithm.SourceType;
+import com.chirikhin.cft.algorithm.SortDirection;
 
 public class SortConfiguration {
-    private final SortType sortType;
-    private final SourceType sourceType;
+
+    public enum SortDataType {
+        INTEGER, STRING
+    }
+
+    private final SortDirection sortDirection;
+    private final SortDataType sortDataType;
     private final String inFilename;
     private final String outFilename;
 
-    public SortConfiguration (SourceType sourceType, SortType sortType, String inFilename, String outFilename) {
-        if (null == sourceType || null == sortType || null == inFilename || null == outFilename) {
+    public SortConfiguration (SortDataType sortDataType, SortDirection sortDirection, String inFilename, String outFilename) {
+        if (null == sortDataType || null == sortDirection || null == inFilename || null == outFilename) {
             throw new IllegalArgumentException("All the fields of sort configuration instance must be not null");
         }
 
-        this.sortType = sortType;
-        this.sourceType = sourceType;
+        this.sortDirection = sortDirection;
+        this.sortDataType = sortDataType;
         this.inFilename = inFilename;
         this.outFilename = outFilename;
     }
 
 
 
-    public SortType getSortType() {
-        return sortType;
+    public SortDirection getSortDirection() {
+        return sortDirection;
     }
 
-    public SourceType getSourceType() {
-        return sourceType;
+    public SortDataType getSortDataType() {
+        return sortDataType;
     }
 
     public String getInFilename() {
