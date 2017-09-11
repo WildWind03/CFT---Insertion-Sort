@@ -16,7 +16,7 @@ public class ComparatorFactory {
 
     public IComparator createComparator(SortType sortType) {
         if (null == sortType) {
-            throw new IllegalArgumentException("sortType cannot be null");
+            throw new IllegalArgumentException("It's impossible to create comparator with null sort type");
         }
 
         switch (sortType) {
@@ -25,7 +25,8 @@ public class ComparatorFactory {
             case DESCENDING:
                 return new DescendingComparator();
             default:
-                throw new IllegalArgumentException("Error! Reached unreachable case!");
+                throw new IllegalArgumentException("It's impossible to create comparator for such sort type: "
+                        .concat(sortType.name()));
         }
     }
 }
