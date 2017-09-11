@@ -26,7 +26,7 @@ public class ComparatorFactory {
                 return new DescendingComparator();
             default:
                 throw new IllegalArgumentException("It's impossible to create comparator for such sort type: "
-                        .concat(sortType.name()));
+                        + sortType.name());
         }
     }
 }

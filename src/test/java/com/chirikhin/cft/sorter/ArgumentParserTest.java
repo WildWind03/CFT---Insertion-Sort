@@ -1,7 +1,9 @@
-package com.chirikhin.cft.filesorter;
+package com.chirikhin.cft.sorter;
 
 import com.chirikhin.cft.algorithm.SortType;
 import com.chirikhin.cft.algorithm.SourceType;
+import com.chirikhin.cft.argumentparser.ArgumentParser;
+import com.chirikhin.cft.argumentparser.SortConfiguration;
 import org.junit.Assert;
 import org.junit.Test;
 

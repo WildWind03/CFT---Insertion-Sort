@@ -23,7 +23,8 @@ public class SorterFactory {
             case INSERTION:
                 return new InsertionSorter();
             default:
-                throw new IllegalArgumentException("It's impossible to create such algorithm: ".concat(sortAlgorithm.name()));
+                throw new IllegalArgumentException("It's impossible to create such algorithm: "
+                        + sortAlgorithm.name());
         }
     }
 }

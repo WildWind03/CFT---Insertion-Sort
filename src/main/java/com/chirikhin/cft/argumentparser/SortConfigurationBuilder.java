@@ -1,4 +1,4 @@
-package com.chirikhin.cft.filesorter;
+package com.chirikhin.cft.argumentparser;
 
 import com.chirikhin.cft.algorithm.SortType;
 import com.chirikhin.cft.algorithm.SourceType;

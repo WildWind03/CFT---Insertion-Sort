@@ -1,4 +1,4 @@
-package com.chirikhin.cft.filesorter;
+package com.chirikhin.cft.argumentparser;
 
 import com.chirikhin.cft.algorithm.SortType;
 import com.chirikhin.cft.algorithm.SourceType;
@@ -41,7 +41,7 @@ public class ArgumentParser {
                 sortConfigurationBuilder.setSourceType(SourceType.INTEGER);
                 break;
             default:
-                throw new IllegalArgumentException("Invalid source type: ".concat(args[2]));
+                throw new IllegalArgumentException("Invalid source type: " + args[2]);
         }
 
         switch (args[3]) {
@@ -52,7 +52,7 @@ public class ArgumentParser {
                 sortConfigurationBuilder.setSortType(SortType.DESCENDING);
                 break;
             default:
-                throw new IllegalArgumentException("Invalid sort type: ".concat(args[3]));
+                throw new IllegalArgumentException("Invalid sort type: " + args[3]);
         }
 
         return sortConfigurationBuilder.createSortConfiguration();
