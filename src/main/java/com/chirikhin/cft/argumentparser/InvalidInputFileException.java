@@ -1,4 +1,4 @@
-package com.chirikhin.cft.util;
+package com.chirikhin.cft.argumentparser;
 
 public class InvalidInputFileException extends Exception {
     public InvalidInputFileException(String message) {

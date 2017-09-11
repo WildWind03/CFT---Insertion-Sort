@@ -1,5 +1,7 @@
 package com.chirikhin.cft.util;
 
+import com.chirikhin.cft.argumentparser.InvalidInputFileException;
+
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;

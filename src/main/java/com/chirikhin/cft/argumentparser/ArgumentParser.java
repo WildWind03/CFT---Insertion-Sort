@@ -21,7 +21,7 @@ public class ArgumentParser {
         }
 
         if (args.length != 4) {
-            throw new IllegalArgumentException("You must start the program with 4 arguments. Please, read readme file");
+            throw new IllegalArgumentException("You must start the program with 4 arguments");
         }
 
         if (null == args[0] || null == args[1]

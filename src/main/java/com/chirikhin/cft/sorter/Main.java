@@ -4,6 +4,7 @@ import com.chirikhin.cft.algorithm.ISorter;
 import com.chirikhin.cft.algorithm.SortAlgorithm;
 import com.chirikhin.cft.algorithm.SorterFactory;
 import com.chirikhin.cft.argumentparser.ArgumentParser;
+import com.chirikhin.cft.argumentparser.InvalidInputFileException;
 import com.chirikhin.cft.argumentparser.SortConfiguration;
 import com.chirikhin.cft.util.IOUtil;
 
@@ -22,11 +23,16 @@ public class Main {
 
             switch (sortConfiguration.getSourceType()) {
                 case INTEGER:
-                    Integer[] integers = Arrays
-                            .stream(strings)
-                            .mapToInt(Integer::parseInt)
-                            .boxed()
-                            .toArray(Integer[]::new);
+                    Integer[] integers;
+                    try {
+                        integers = Arrays
+                                .stream(strings)
+                                .mapToInt(Integer::parseInt)
+                                .boxed()
+                                .toArray(Integer[]::new);
+                    } catch (NumberFormatException e) {
+                        throw new InvalidInputFileException("Invalid file. Can not parse a string to integer");
+                    }
 
                     iSorter.sort(integers, sortConfiguration.getSortType());
                     IOUtil.write(sortConfiguration.getOutFilename(), integers);
